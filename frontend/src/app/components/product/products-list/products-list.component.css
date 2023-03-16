@@ -2,7 +2,7 @@
     display:flex;
     justify-content: center;
     flex-wrap:wrap;
-    padding:50px
+    padding:30px 50px 50px
 }
 .card {
     margin:20px 10px;
@@ -21,3 +21,5 @@
 .buttons {
     padding:0 0 10px
 }
+
+

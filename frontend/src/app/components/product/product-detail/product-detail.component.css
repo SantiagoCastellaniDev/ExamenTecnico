@@ -2,6 +2,15 @@
     min-height: 80vh;
     height:max-content;
 }
+.back {
+    text-align:end;
+    margin-right:150px;
+    position:relative;
+    top:-30px;
+}
+.back a {    
+    text-decoration: none;
+}
 #detail {    
     padding:3% 10% 10%
 }

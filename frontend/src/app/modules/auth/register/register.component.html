@@ -1,0 +1,90 @@
+<section class="sesion-background">
+    <div id="header">
+        <a id="back" routerLink="/landing">
+            <div id="logo">
+                <img src="../../../../assets/img/icono.ico" alt="" id="logo2">                  
+            </div>
+            <div id="tienda">
+                Tienda Virtual               
+            </div>
+        </a>
+    </div>
+    <div class="chix">
+      <div class="tar">
+        <div class="title">
+          <div class="text-center">
+            <p>Regístrate</p>
+          </div>                    
+        </div>      
+        <!---LOGIN CUENTA USUARIO---->
+        <div id="formulario">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()" autocomplete="off">
+                <!----Ingrese su nombre--->
+                <div class="">
+                  <label for="nombre">Nombre</label>
+                  <input type="nombre" id="nombre"  formControlName="firstName" class="form-control" aria-describedby="nombreHelp" placeholder="Maria" [ngClass]="{'is-valid':!Nombre?.errors&& Nombre?.touched}"/>
+                  <div *ngIf="Nombre?.errors && Nombre?.touched">
+                    <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                      Debe ingresar un nombre
+                    </p>
+                  </div>
+                </div>
+                <!----Ingrese su apellido--->
+                <div class="">
+                  <label for="apellido">Apellido</label>
+                  <input type="apellido" id="apellido"  formControlName="lastName" class="form-control" aria-describedby="apellidoHelp" placeholder="Gutierrez" [ngClass]="{'is-valid':!Apellido?.errors&& Apellido?.touched}"/>
+                  <div *ngIf="Apellido?.errors && Apellido?.touched">
+                    <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                      Debe ingresar su apellido
+                    </p>
+                  </div>
+                </div>              
+                <!----Ingrese su email---->
+                <div class="">
+                  <label  for="email">Email</label>
+                  <input type="email" id="email"  formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="mariagutierrez@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/>
+                  <div *ngIf="Email?.errors && Email?.touched">
+                    <p *ngIf="Email?.hasError('required')" class="text-danger">
+                      Ingrese su email
+                    </p>
+                    <p *ngIf="Email?.hasError('email')" class="text-danger">
+                      El formato del email es inválido
+                    </p>
+                  </div>
+                </div>
+                <!----Ingrese la contraseña--->
+                <div class="campo">
+                  <label class="label" for="password">Contraseña</label>
+                  <input [type]="ocultar?'password':'text'" id="password" name="password" formControlName="password" class="input-password form-control" [ngClass]="{'is-valid':!Password?.errors&&Password?.touched}"/>
+                  <label class="eye-icon" for="password"><i [class]="ocultar ? 'bi bi-eye' : 'bi bi-eye-slash'" (click)="ocultar = !ocultar"></i></label>
+                  <div *ngIf="Password?.errors && Password?.touched">
+                    <p *ngIf="Password?.hasError('required')" class="text-danger">
+                      Ingrese su contraseña
+                    </p>
+                    <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+                      La contraseña debe tener como mínimo 8 caracteres
+                    </p>
+                    <p *ngIf="Password?.hasError('maxlength')" class="text-danger">
+                      La contraseña debe tener como máximo 22 caracteres
+                    </p>
+                    <p *ngIf="Password?.hasError('pattern')" class="text-danger">
+                      La contraseña debe contener al menos un número y una letra mayúscula
+                    </p>
+                  </div>
+                </div>
+                <!----Footer de registro--->
+                <div class="footer">
+                  <div class="descript">
+                      <p>¿Ya tienes cuenta?</p>
+                      <a routerLink="/auth/login">Ingresar</a>
+                  </div>
+                  <div class="boton">
+                      <button class="btn btn-blue" type="submit" [disabled]="!registerForm.valid">Registrarse</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>  
+</section>
+

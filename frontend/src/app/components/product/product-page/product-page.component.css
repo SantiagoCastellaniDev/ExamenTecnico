@@ -7,3 +7,12 @@
     justify-content: center;
     flex-wrap:wrap
 }
+.back {
+    text-align:end;
+    margin-right:150px;
+    position:relative;
+    top:-30px;
+}
+.back a {    
+    text-decoration: none;
+}

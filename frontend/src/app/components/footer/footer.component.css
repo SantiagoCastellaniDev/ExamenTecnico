@@ -16,8 +16,6 @@
 }
 
 .empresarial {
-    /*display:flex;
-    justify-content: space-between;*/
     flex-wrap:wrap;
     padding:40px 30px;
     min-height:100px;

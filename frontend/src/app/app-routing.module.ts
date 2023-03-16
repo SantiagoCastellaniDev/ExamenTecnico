@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:'landing',component:LandingComponent},
   {path:'products',component:ProductPageComponent},
   {path:'product/detail/:id?',component:ProductDetailComponent},
+  {path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
   {path:'**',redirectTo:'landing'}
 ];
 
