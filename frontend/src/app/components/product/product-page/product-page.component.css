@@ -1,0 +1,9 @@
+#products {
+    min-height:100vh;
+    height:max-content
+}
+#productList {
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap
+}

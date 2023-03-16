@@ -1,0 +1,122 @@
+#landing {
+    height: max-content;
+}
+.prox {
+    position:absolute;
+    width:100%;
+    top:150px;
+    text-align:center;
+    z-index:1;
+    display:flex;
+    justify-content: center;
+}
+.box {
+    border:1px solid yellow;
+    width:max-content;
+    border-radius:10px;
+    background-color:rgba(205, 205, 139, 0.625);
+    padding:20px
+}
+
+.item-car-home img {
+    width:100%;
+    height:500px
+}
+
+#pagos {
+    padding:50px;
+}
+.container-pagos {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap
+}
+.medio {
+    border:1px solid rgb(204, 197, 197);
+    box-shadow: 1px 1px 1px 1px;
+    border-radius:5px;
+    padding:5px;
+    width:200px;
+    height:100px;
+    text-align:center
+}
+.tipo-pago {
+    margin:0;
+}
+.aditional-info {
+    font-size:0.8rem;
+    padding-bottom:3px
+}
+.fire {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap
+}
+hr {
+    margin:0
+}
+.subtitle {
+    margin-top:0;
+    margin-bottom:25px
+}
+#ofertas {
+    padding:50px;    
+    background: rgb(255, 255, 124);
+}
+#categorias {
+    padding:50px;
+}
+.categories {
+    display:flex;
+    justify-content: center;
+}
+.categoria {
+    box-shadow: 0.5px 0.5px 0.5px 0.5px;
+    margin:0 50px;
+    border:1px solid gray;
+    width:100px;
+    height: 100px;
+    text-align: center;
+    border-radius:10px;
+    cursor:pointer
+}
+.categoria:hover {
+    background-color: antiquewhite;
+
+}
+.categoria i {
+    font-size: 50px;
+    margin:0
+}
+.categoria p {
+    margin:0
+}
+#information {
+    padding:50px;     
+    background: rgb(255, 255, 124);
+}
+.informations {
+    padding:20px 100px
+}
+.informations .card {
+    height:300px;
+    border:1px solid gray;
+    padding:10px;
+    margin:15px 0
+}
+.btn-fechas a {
+    margin-top:25px
+}
+.letra-chica {
+    font-size:0.8rem
+}
+.vip {
+    margin-top:30px
+}
+.vip a{
+    margin-left:20px    
+}
+.magica a {
+    margin-top:15px
+}
+
