@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductPageComponent } from './components/product/product-page/product-page.component';
 
 const routes: Routes = [
   {path:'landing',component:LandingComponent},
   {path:'products',component:ProductPageComponent},
+  {path:'product/detail/:id?',component:ProductDetailComponent},
   {path:'**',redirectTo:'landing'}
 ];
 

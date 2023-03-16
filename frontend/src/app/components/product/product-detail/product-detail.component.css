@@ -1,0 +1,27 @@
+#product-detail {
+    min-height: 80vh;
+    height:max-content;
+}
+#detail {    
+    padding:3% 10% 10%
+}
+#img-detail {
+    width:auto;
+    height: 400px;
+}
+.buttons {
+    display:flex;
+    justify-content:space-around
+}
+.card-body {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:100%
+}
+.card-body h5 {
+    font-size:2rem
+}
+.card-body p {
+    font-size:1.2rem
+}

@@ -1,1 +1,31 @@
+<app-nav></app-nav>
+<section id="product-detail">
+    <div class="title text-center mt-5">
+        <h3>Tienda Virtual</h3>        
+    </div>
+    <div id="detail">
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img id="img-detail" [src]="product.img_Product" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{product.name}}</h5>
+              <p class="card-text text-center">{{product.description}}</p>
+              <p class="card-text text-center"><b>$ {{product.price}}</b></p>
+              <p class="card-text text-center"><small class="text-muted">Aqui podría figurar alguna otra descripción  del producto. Como por ejemplo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae expedita, iste corrupti nisi esse praesentium ducimus sint eligendi! Perspiciatis modi ab nisi ratione saepe adipisci, temporibus id deserunt eius maiores."</small></p>
+              <div class="buttons">
+                <button (click)="addProductToCart(product)" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Agregar al carrito</button>
+                <button class="btn btn-primary">Comprar ahora</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    </div>
 
+    </div>
+    
+</section>
+<app-footer></app-footer>

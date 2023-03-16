@@ -16,18 +16,22 @@
 }
 
 .empresarial {
-    display:flex;
-    justify-content: space-between;
+    /*display:flex;
+    justify-content: space-between;*/
     flex-wrap:wrap;
     padding:40px 30px;
-    height:100px;
+    min-height:100px;
+    height:max-content;
     border-top:1px solid grey
 }
 .empresarial p {
     margin-bottom:0;
     
 }
-
+.redes {
+    margin-top:10px
+}
 .redes span,.redes a {
-    margin-right:20px
+    margin-right:20px;
+    text-align:center
 }

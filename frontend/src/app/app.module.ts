@@ -11,6 +11,9 @@ import { ProductsListComponent } from './components/product/products-list/produc
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductPageComponent } from './components/product/product-page/product-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartPageComponent } from './components/cart/cart-page/cart-page.component';
+import { CartListComponent } from './components/cart/cart-list/cart-list.component';
+import { CartProductComponent } from './components/cart/cart-product/cart-product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    CartPageComponent,
+    CartListComponent,
+    CartProductComponent
   ],
   imports: [
     BrowserModule,

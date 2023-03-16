@@ -1,11 +1,11 @@
 #productList {
     display:flex;
     justify-content: center;
-    flex-wrap:wrap
+    flex-wrap:wrap;
+    padding:50px
 }
 .card {
-    margin:10px;
-    width:230px
+    margin:20px 10px;
 }
 .card a {
     text-decoration: none;
@@ -13,4 +13,11 @@
 }
 .card img {
     height:250px
+}
+.card-body p {
+    margin-bottom:0px;
+    padding-bottom:0px
+}
+.buttons {
+    padding:0 0 10px
 }

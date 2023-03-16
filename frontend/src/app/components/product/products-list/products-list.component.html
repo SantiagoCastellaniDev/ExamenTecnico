@@ -1,17 +1,15 @@
 <div id="productList">
-    <div class="card" style="width: 18rem;" *ngFor="let product of productList">
-        <a href="#">
-        <img [src]="product.img_Product" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">{{product.description}}</p>
-          <p class="card-text">$ {{product.price}}</p>
-        </div>
+    <div class="card" style="width: 15rem;" *ngFor="let product of productList">
+        <a href="#" (click)="navigateTo($event,product.idProduct,product)">
+            <img [src]="product.img_Product" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{product.name}}</h5>
+                <p class="card-text text-center">{{product.description}}</p>
+                <p class="card-text text-center">$ {{product.price}}</p>
+            </div>
         </a>
-        <div>
-        <button class="btn btn-primary">Agregar al carrito</button>
-                   
-        </div>
-        
+        <div class="text-center buttons">
+            <button class="btn btn-primary" (click)="addToCart(product)"><i class="bi bi-cart"></i> Agregar al carrito</button>                   
+        </div>        
     </div>
 </div>
