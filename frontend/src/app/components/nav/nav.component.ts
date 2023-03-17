@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav',
@@ -10,9 +12,15 @@ export class NavComponent implements OnInit {
 
   isLogged:boolean=false;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private authService:AuthService) { }
 
   ngOnInit(): void {
+    const status = sessionStorage.getItem("isLogged?");
+    if (status=="UserIsLogged"){
+      this.isLogged=true;
+    } else {
+      this.isLogged=false
+    }
   }
 
   actionUser(){
@@ -25,13 +33,54 @@ export class NavComponent implements OnInit {
   }
 
   logIn(){
-    console.log("Hola");
     this.router.navigateByUrl("/auth/login")
   }
 
   logout(){
-    console.log("chau");
-    this.isLogged=false
+    Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      text: "Seras redirigido a la página de inicio",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, estoy seguro!'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.isLogged=false;
+        this.authService.logOut();
+        this.router.navigateByUrl('/landing')
+      }
+    })
   }
 
+  openCart(){
+    if(this.isLogged){
+      this.router.navigateByUrl('/cart')
+    } else {
+      this.info()
+    }
+    
+  }
+
+  info(){
+    Swal.fire({
+      title: 'Inicia sesión',
+      text: "Para poder comprar o visualizar tu carrito, debes iniciar sesión",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Inicia sesión'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      }
+      else {
+        this.router.navigateByUrl('/landing')
+      }
+    })
+  }
 }
+
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginUser } from '../models/login-user';
 import { AuthService } from '../services/auth.service';
 import { TokenService } from '../services/token.service';
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   loginUsuario: LoginUser={email:"",password:""};
   emailUsuario: string="";
   password: string="";
+  usuarioHarcodeado={email:"usuario@email.com",password:"12E45678"};
 
   constructor(private formBuilder:FormBuilder, private router: Router,private authService:AuthService,private tokenService:TokenService) {
     this.loginForm = this.formBuilder.group(
@@ -32,35 +34,34 @@ export class LoginComponent implements OnInit {
   // OnLogin
   onLogin(event: any) {
     this.loginUsuario = this.loginForm.value;
+    console.log(this.loginUsuario);
+    if (this.loginUsuario.email=="usuario@email.com"&&this.loginUsuario.password=="12E45678"){
+      this.isLogged = true;
+      this.authService.isUserLogged();
+      this.router.navigate(['/landing'])
+    } else {
+      this.usuarioIncorrecto()
+    }
+    /*
     this.authService.login(this.loginUsuario).subscribe({
       next: (res:any) => {
-        this.isLogged = true
-        /*this.tokenService.setToken(res.data.token)
+        
+        this.tokenService.setToken(res.data.token)
         this.tokenService.setUserId(res.data.user.id)
         this.tokenService.setUserName(res.data.user.firstName)
         this.tokenService.setLastName(res.data.user.lastName)
-        this.tokenService.setDni(res.data.user.dni)
-        this.tokenService.setPhone(res.data.user.phone)
         this.tokenService.setEmail(res.data.user.email)
-        this.tokenService.setRole(res.data.user.role)*/
-        const rol = res.data.user.role
-        if (rol == 'patient') {
-          this.router.navigateByUrl('/user/dashboard/inicio')
-        } else if (rol=="doctor") {
-          this.router.navigate(['/doctor/dashboard'])
-        } else if (rol=="admin"){
-          this.router.navigate(['/admin/dashboard'])
-        } /*else {
-          this.usuarioIncorrecto();
-        }*/;
-      },
+        this.tokenService.setRole(res.data.user.role)
+        const rol = res.data.user.role*/
+        
+      /*,
       error: (error:any) => {
         this.isLogged = false
-        console.error(error)/*
-        this.usuarioIncorrecto()*/
+        console.error(error)
+        this.usuarioIncorrecto()
       },
       complete: () => {}
-    })
+    })*/
   }
 
   // Properties Validators
@@ -71,8 +72,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password')
   }
 
-  // ALERT: Incorrect User
-  /*
+  // ALERT: Incorrect User  
   usuarioIncorrecto() {
     Swal.fire({
       title: 'Usuario NO registrado',
@@ -84,9 +84,8 @@ export class LoginComponent implements OnInit {
       confirmButtonText: 'Quiero registrarme'
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/auth/registro')
+        this.router.navigateByUrl('/auth/register')
       }
     })
-  }*/
-
+  }
 }

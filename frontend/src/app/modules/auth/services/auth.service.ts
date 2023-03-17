@@ -10,10 +10,12 @@ import { NewUser } from '../models/new-user';
 })
 export class AuthService {
 
+  isLogged:boolean=false;
+
   constructor(private http: HttpClient) {}
 
   URL = environment.baseUrl
-/*
+
   httpOptions: any = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -21,22 +23,27 @@ export class AuthService {
       'Access-Control-Allow-Methods': 'GET',
       'Access-Control-Allow-Origin': '*'
     })
-  }*/
+  }
 
   // REGISTRARSE
   public register(nuevoUsuario: NewUser): Observable<any> {
-    return this.http.post<any>(this.URL + '/auth/register', nuevoUsuario)
+    return this.http.post<any>(this.URL + 'auth/register', nuevoUsuario)
   }
 
   // LOGIN
   public login(loginUser: LoginUser): Observable<any> {
     return this.http.post<any>(
-      this.URL + '/auth/login',loginUser,/*this.httpOptions.headers*/
+      this.URL + 'auth/login',loginUser,this.httpOptions.headers
     )
   }
 
   // LOGOUT
-  public logOut(): void{
+  public logOut(): void{    
     window.sessionStorage.clear();
+  }
+
+  public isUserLogged(): void{
+    this.isLogged=true;
+    sessionStorage.setItem("isLogged?","UserIsLogged")
   }
 }

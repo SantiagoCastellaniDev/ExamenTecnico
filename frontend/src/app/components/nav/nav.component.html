@@ -14,19 +14,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLink="/products">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tecnología</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Libros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">Arte</a>
-            </li>         
-        </ul>
-        <button id="btn-carrito"><i class="bi bi-cart"></i></button>
-        <button id="btn-user" (click)="actionUser()"><i class="bi bi-person"></i></button>
+            </li>           
+        </ul>        
+        <button id="btn-carrito" (click)="openCart()"><i class="bi bi-cart"></i></button>
+        <button [style.color]="isLogged?'orange':'black'" id="btn-user" (click)="actionUser()"><i [ngClass]="isLogged?'bi bi-person-check-fill':'bi bi-person'"></i></button>
       </div>
     </div>
   </nav>
