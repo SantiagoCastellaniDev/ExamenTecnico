@@ -1,3 +1,12 @@
+<!-----------ALERT addProductToCart------------------------------->
+<div *ngIf="alert" role="alert" class="alert alert-dismissible fade show fixed-top" [class]="{'alert-warning':(cantProducts==4),'alert-info':(cantProducts<10),'alert-danger':(cantProducts>9)}">
+    <strong>En hora buena</strong> Has agregado {{cantProducts}} producto<span *ngIf="cantProducts>1">s</span> a tu carrito.
+    <p *ngIf="cantProducts==4">¡Felicidades, puedes aprovechar la oferta mágica x 4!</p>
+    <a id="toCart" routerLink="/cart">Ver carrito  <i class="bi bi-cart"></i></a>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>    
+</div>
+
+<!----------------PRODUCT LIST------------------------------------->
 <div id="productList">
     <div class="card" style="width: 15rem;" *ngFor="let product of productList">
         <a href="#" (click)="navigateTo($event,product.idProduct,product)">

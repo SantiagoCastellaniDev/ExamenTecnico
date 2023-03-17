@@ -1,0 +1,8 @@
+#cart {
+    min-height: 80vh;
+    height:max-content;
+    text-align:center
+}
+#cartList {
+    padding:5% 10% 10%
+}

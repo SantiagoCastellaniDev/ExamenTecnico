@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,8 +12,11 @@ import Swal from 'sweetalert2';
 export class NavComponent implements OnInit {
 
   isLogged:boolean=false;
+  cantProducts:number=0;
 
-  constructor(private router:Router,private authService:AuthService) { }
+  constructor(private router:Router,private authService:AuthService,private cartService:CartService) {    
+    
+   }
 
   ngOnInit(): void {
     const status = sessionStorage.getItem("isLogged?");
@@ -22,7 +26,7 @@ export class NavComponent implements OnInit {
       this.isLogged=false
     }
   }
-
+  
   actionUser(){
     if (this.isLogged){
       this.logout()
@@ -46,9 +50,10 @@ export class NavComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, estoy seguro!'
     }).then((result:any) => {
-      if (result.isConfirmed) {
+      if (result.isConfirmed) {        
+        this.cartService.resetCart();
         this.isLogged=false;
-        this.authService.logOut();
+        this.authService.logOut();    
         this.router.navigateByUrl('/landing')
       }
     })
@@ -81,6 +86,23 @@ export class NavComponent implements OnInit {
       }
     })
   }
+/*
+  actualiceCount(){
+    this.cartService.getCount().subscribe({
+      next: (res) => {
+        this.cantProducts=res;
+      },
+      error: (error) => {
+        console.error(error)
+      },
+      complete: () => {}
+    })
+  }*/
+  
+
+  
+
+
 }
 
 

@@ -34,3 +34,22 @@
 .card-body p {
     font-size:1.2rem
 }
+.alert {
+    width:80%;
+    height:max-content;
+    margin:250px auto 0;
+    font-size:1.2rem;
+    padding:30px
+}
+
+
+.title-modal {
+    margin:0 auto;
+}
+.modal-header, .modal-footer {
+    background: rgb(255, 255, 124);
+}
+.modal-footer {
+    display:flex;
+    justify-content: space-around;
+}

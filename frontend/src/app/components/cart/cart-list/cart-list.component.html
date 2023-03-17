@@ -1,1 +1,71 @@
-<p>cart-list works!</p>
+<div class="box">
+    <h4>Mi carrito</h4>
+    <a *ngIf="listCart.length!=0" routerLink="/products">Ver más productos</a>
+    <div *ngIf="listCart.length!=0">
+        <div *ngFor="let product of listCart, let i=index " class="row tar">
+            <div class="col-md-2 col-xs-12">
+                <img [src]="product.img_Product" alt="" id="img-product">
+            </div>
+            <div class="col-md-7 col-xs-12" id="productDescription">
+                <h5>{{product.name}}</h5>
+                <p>{{product.description}}</p>
+                <button id="btn-delete" class="btn btn-outline-danger" (click)="removeProduct(i)">Eliminar producto</button>
+            </div>            
+            <div class="col-md-3 col-xs-12">
+                <p class="productPrice price">$ {{product.price}}</p>
+            </div>
+        </div>        
+        <hr>
+        <p>Cantidad de productos: <b>{{listCart.length}}</b></p>
+        <p>Total con envío</p>
+        <p class="productPrice">$ {{totalPrice}}</p>
+
+        <button class="btn btn-primary" id="btn-comprar" (click)="buy()" data-bs-toggle="modal" data-bs-target="#confirmPurchase">Comprar</button>
+    </div>
+    <div *ngIf="listCart.length==0" id="msg">        
+        <div class="mensaje">
+            <p>Tu carrito está vacío</p>
+            <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
+            <button class="btn btn-primary" (click)="verProductos()">Ver Productos</button>
+        </div>
+    </div>
+</div>
+
+
+<!---------------------------------------------------------->
+
+<!--------------MODAL CONFIRMAR COMPRA---------------------->
+
+<div class="modal fade" id="confirmPurchase" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-agregar">
+        <div class="modal-header text-center">
+            <div class="title-modal text-center">
+                <h4>Feria Virtual</h4>
+                <h5 class="">¿Desea comprar los artículos seleccionados?</h5>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div>
+                <h5 class="">Seleccionados:</h5>
+            </div>
+            <div id="articles">
+                <div *ngFor="let product of listCart">
+                    <p>{{product.name}}</p>
+                </div>
+                <hr>
+                <p>Cantidad de artículos: <b>{{listCart.length}}</b></p>
+                <h6>Total</h6>
+                <p><b>$ {{totalPrice}}</b></p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-success" data-bs-dismiss="modal" (click)="confirmPurchase()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
