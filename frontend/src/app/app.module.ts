@@ -15,6 +15,7 @@ import { CartPageComponent } from './components/cart/cart-page/cart-page.compone
 import { CartListComponent } from './components/cart/cart-list/cart-list.component';
 import { CartProductComponent } from './components/cart/cart-product/cart-product.component';
 import { BtnCartComponent } from './components/btn-cart/btn-cart.component';
+import { FechasComponent } from './components/fechas/fechas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BtnCartComponent } from './components/btn-cart/btn-cart.component';
     CartPageComponent,
     CartListComponent,
     CartProductComponent,
-    BtnCartComponent
+    BtnCartComponent,
+    FechasComponent
   ],
   imports: [
     BrowserModule,

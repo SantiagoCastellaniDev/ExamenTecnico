@@ -4,7 +4,7 @@
 .prox {
     position:absolute;
     width:100%;
-    top:150px;
+    top:200px;
     text-align:center;
     z-index:1;
     display:flex;

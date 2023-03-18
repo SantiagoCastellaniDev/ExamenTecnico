@@ -42,6 +42,12 @@ export class CartService {
     return this.priceTotal;  
   }
 
+  // OFERTA 1: "Llevando 4 productos, se descuenta el 25%"
+  public typeOfferCuatro():number{
+    this.priceTotal = this.listCart.reduce((totalPrice, product) => totalPrice + product.price, 0);
+    return this.priceTotal = this.priceTotal*0.75
+  }
+
   
 
  

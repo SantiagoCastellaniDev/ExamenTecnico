@@ -1,8 +1,8 @@
 <app-nav></app-nav>
 <main id="landing">
-  <!---Carrousel--->
+  <!---Header----------------------------->  
   <section class="car">
-    <!----
+    <!---Aviso Fechas--->
     <div class="prox text-center">
       <div class="text-center box">
         <h1>Tienda Virtual</h1>
@@ -10,8 +10,10 @@
         <p id="fecha">21 de Marzo de 2023</p>
         <p>"Comienza el Otoño"</p>
         <p>Aprovecha y disfruta de la oferta especial celebrando el otoño.</p>
+        <button class="btn btn-outline-success" (click)="navigateTo('/specialDay')">Ver las próximas fechas especiales</button>
       </div>      
-    </div>---->
+    </div>
+    <!---Carrousel--->
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item item-car-home active">
@@ -32,8 +34,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
-    
+    </div>    
   </section>  
   <!---Medios de pago--->
   <section id="pagos">
@@ -136,15 +137,15 @@
       <h3>Categorías</h3>
     </div>
     <div class="categories">
-      <div class="categoria" (click)="navigateTo()">
+      <div class="categoria">
         <p><i class="bi bi-pc-display-horizontal"></i></p>
         <p>Tecnología</p>
       </div>
-      <div class="categoria" (click)="navigateTo()">
+      <div class="categoria">
         <p><i class="bi bi-book"></i></p>
         <p>Libros</p>
       </div>
-      <div class="categoria" (click)="navigateTo()">
+      <div class="categoria">
         <p><i class="bi bi-brush"></i></p>
         <p>Arte</p>
       </div>

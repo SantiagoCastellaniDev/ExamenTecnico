@@ -47,6 +47,9 @@
     font-weight: bolder;
     font-size: 1.2rem;
 }
+.productPriceOffer {
+    text-decoration:dashed
+}
 .title-modal {
     margin:0 auto;
 }

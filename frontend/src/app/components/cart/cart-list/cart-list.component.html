@@ -18,7 +18,19 @@
         <hr>
         <p>Cantidad de productos: <b>{{listCart.length}}</b></p>
         <p>Total con envío</p>
-        <p class="productPrice">$ {{totalPrice}}</p>
+        <p *ngIf="!isOffer" class="productPrice">$ {{totalPrice}}</p>
+        <p *ngIf="isOffer" class="productPriceOffer"><s>$ {{totalPrice}}</s></p>
+        <div *ngIf="listCart.length==4">
+            <p class="productPrice">Precio de Oferta x 4:</p>
+            <p class="productPrice"><b>$ {{priceOffer}}</b></p>
+        </div>
+        <div *ngIf="listCart.length>9">
+            <p>Precio de Oferta + de 10 Productos: </p>
+            <p class="productPrice"><b>$ {{priceOffer}}</b></p>
+        </div>
+
+       
+
 
         <button class="btn btn-primary" id="btn-comprar" (click)="buy()" data-bs-toggle="modal" data-bs-target="#confirmPurchase">Comprar</button>
     </div>
