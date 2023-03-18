@@ -1,4 +1,5 @@
 .box {
+    margin-top:30px;
     width:100%;
     padding:10px;
     min-height:300px;
@@ -49,6 +50,11 @@
 }
 .productPriceOffer {
     text-decoration:dashed
+}
+.buttons {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .title-modal {
     margin:0 auto;

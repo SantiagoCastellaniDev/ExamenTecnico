@@ -1,9 +1,12 @@
 #landing {
     height: max-content;
 }
+
+/*------Aviso Fechas---------*/
 .prox {
     position:absolute;
     width:100%;
+    margin:0 auto;
     top:200px;
     text-align:center;
     z-index:1;
@@ -18,11 +21,13 @@
     padding:20px
 }
 
+/*------Carrousel-----------*/
 .item-car-home img {
     width:100%;
     height:500px
 }
 
+/*-------Medios de pago--------*/
 #pagos {
     padding:50px;
 }
@@ -38,7 +43,8 @@
     padding:5px;
     width:200px;
     height:100px;
-    text-align:center
+    text-align:center;
+    margin:10px
 }
 .tipo-pago {
     margin:0;
@@ -59,50 +65,44 @@ hr {
     margin-top:0;
     margin-bottom:25px
 }
+
+/*-------Ofertas---------*/
 #ofertas {
     padding:50px;    
     background: rgb(255, 255, 124);
 }
-#categorias {
-    padding:50px;
-}
-.categories {
+.ofertas {
     display:flex;
     justify-content: center;
+    flex-wrap:wrap
 }
-.categoria {
-    box-shadow: 0.5px 0.5px 0.5px 0.5px;
-    margin:0 50px;
-    border:1px solid gray;
-    width:100px;
-    height: 100px;
-    text-align: center;
-    border-radius:10px;
-    cursor:pointer
+.oferta {
+    margin:10px
 }
-.categoria:hover {
-    background-color: antiquewhite;
+.oferta img {
+    width:100%;
+    height:220px
+}
 
-}
-.categoria i {
-    font-size: 50px;
-    margin:0
-}
-.categoria p {
-    margin:0
-}
+/*----------Informacion----------*/
 #information {
-    padding:50px;     
+    padding:50px 20px;     
     background: rgb(255, 255, 124);
 }
 .informations {
-    padding:20px 100px
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap
 }
 .informations .card {
-    height:300px;
+    min-height:max-content;
+    height:100%;
     border:1px solid gray;
-    padding:10px;
+    padding:5px;
     margin:15px 0
+}
+.inf {
+    margin:20px 0
 }
 .btn-fechas a {
     margin-top:25px

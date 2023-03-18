@@ -2,11 +2,16 @@
     min-height: 80vh;
     height:max-content;
 }
+
+.header {
+    margin-top:110px;
+    display:flex;
+    justify-content:space-between;
+    padding:0 150px
+}
 .back {
-    text-align:end;
-    margin-right:150px;
     position:relative;
-    top:-30px;
+    top:50px;
 }
 .back a {    
     text-decoration: none;
@@ -20,7 +25,11 @@
 }
 .buttons {
     display:flex;
+    flex-wrap:wrap;
     justify-content:space-around
+}
+.buttons button {
+    margin-bottom:10px
 }
 .card-body {
     display:flex;
@@ -52,4 +61,10 @@
 .modal-footer {
     display:flex;
     justify-content: space-around;
+}
+
+@media only screen and (max-width: 670px) {
+    .header {
+        padding:0 40px
+    }
 }

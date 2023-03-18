@@ -28,12 +28,12 @@
             <p>Precio de Oferta + de 10 Productos: </p>
             <p class="productPrice"><b>$ {{priceOffer}}</b></p>
         </div>
-
-       
-
-
-        <button class="btn btn-primary" id="btn-comprar" (click)="buy()" data-bs-toggle="modal" data-bs-target="#confirmPurchase">Comprar</button>
+        <div class="buttons">
+            <button class="btn btn-outline-danger" (click)="deleteCart()">Eliminar carrito</button>
+            <button class="btn btn-primary" id="btn-comprar" (click)="buy()" data-bs-toggle="modal" data-bs-target="#confirmPurchase">Comprar</button>
+        </div>        
     </div>
+    <!----Carrito vacio---->
     <div *ngIf="listCart.length==0" id="msg">        
         <div class="mensaje">
             <p>Tu carrito está vacío</p>
@@ -42,6 +42,8 @@
         </div>
     </div>
 </div>
+
+<button (click)="comparator()">Comparar</button>
 
 
 <!---------------------------------------------------------->

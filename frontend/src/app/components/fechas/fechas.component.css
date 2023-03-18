@@ -6,17 +6,23 @@
     font-size:1.3rem
 }
 .group {
-    margin-top:80px;
-    padding:0 100px;
+    margin-top:60px;
+    padding:0 20px;
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     flex-wrap:wrap
 }
 .fecha {    
     box-shadow: 0px 1px 2px 2px rgba(121, 116, 116, 0.25);
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    padding:50px
+    padding:70px 50px;
+    width:200px;
+    height:200px;
+    margin: 10px
+}
+.fecha:hover {
+    background: white;
 }
 .otoño {
     background: rgba(237, 200, 98, 0.55);
@@ -37,5 +43,6 @@
     font-size:1rem
 }
 #btn-generate {
-    font-size:1.5rem
+    font-size:1.5rem;
+    margin-bottom:50px
 }

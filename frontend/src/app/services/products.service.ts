@@ -32,6 +32,7 @@ export class ProductsService {
     const fechaIso = today.toISOString();
     const fechaFormateada = fechaIso.substring(0, 10);
     this.specialDay =fechaFormateada;
+    console.log(this.specialDay)
   }
 
   public fechaEspecial(){

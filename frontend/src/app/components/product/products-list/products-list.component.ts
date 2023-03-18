@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products-list',
@@ -15,6 +16,7 @@ export class ProductsListComponent implements OnInit {
   arrayCart:Product[]=[];
   producto:string="";
   cantProducts:number=0;
+  isLogged:boolean=false;
   
   alert:boolean=false;
 
@@ -22,6 +24,8 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.getStatusLogin()
+    
   }
 
   getAllProducts() {
@@ -37,6 +41,15 @@ export class ProductsListComponent implements OnInit {
     })
   }
 
+  getStatusLogin(){
+    const status = sessionStorage.getItem("isLogged?");
+    if (status=="UserIsLogged"){
+      this.isLogged=true;
+    } else {
+      this.isLogged=false
+    }
+  }
+
   navigateTo(event:Event,id:string,product:Product){
     event.preventDefault();
     event.stopPropagation();
@@ -48,9 +61,14 @@ export class ProductsListComponent implements OnInit {
   }
 
   addToCart(product:Product){
-    this.cartService.addProductToCart(product);
-    this.cantProducts = this.cartService.countProducts();
-    this.showAlert()
+    if (this.isLogged){
+      this.cartService.addProductToCart(product);
+      this.cantProducts = this.cartService.countProducts();
+      this.showAlert()
+    } else {
+      this.info()
+    }
+    
   }
 
   showAlert(){
@@ -58,5 +76,24 @@ export class ProductsListComponent implements OnInit {
   }
   closeAlert(){
     this.alert=false
+  }
+
+  info(){
+    Swal.fire({
+      title: 'Inicia sesión',
+      text: "Para poder comprar o visualizar tu carrito, debes iniciar sesión",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Inicia sesión'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      }
+      else {
+        this.router.navigateByUrl('/products')
+      }
+    })
   }
 }

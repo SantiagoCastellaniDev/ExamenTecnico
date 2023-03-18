@@ -28,7 +28,8 @@ export class CartListComponent implements OnInit {
     this.getCart()
     this.getTotalPrice()      
     this.getFechaActual()
-    this.getFechaEspecial()    
+    this.getFechaEspecial()
+    this.comparator()    
   }
 
   /*------------------DATA------------------------*/
@@ -44,7 +45,7 @@ export class CartListComponent implements OnInit {
     this.getPriceOffer()
   }
 
-  /*------------------TIPO DE CARRITO----------------*/
+  /*------------------FECHA ESPECIAL----------------*/
 
   // Get Date
   getFechaActual(){
@@ -60,8 +61,11 @@ export class CartListComponent implements OnInit {
 
   // Date Comparator
   comparator(){  
+    console.log(this.today,this.specialDay)
     if (this.today===this.specialDay){
-      this.typeCart=TypeCart.fecha
+      this.typeCart=TypeCart.fecha;
+      this.isOffer=true;
+      this.getPriceOffer()      
     }
   }
 
@@ -118,7 +122,8 @@ export class CartListComponent implements OnInit {
   offerFecha(){
     this.isOffer=true;
     this.priceOffer = this.totalPrice - 300;
-    return this.priceOffer
+    //return this.priceOffer
+    console.log(this.priceOffer)
   }  
 
   /*--------------PRODUCTOS--------------------*/
@@ -133,7 +138,18 @@ export class CartListComponent implements OnInit {
   // Remove Product Of Cart
   removeProduct(i:number){    
     this.listCart.splice(i,1);
-    this.getTotalPrice()
+    this.getTotalPrice();
+    const cant = this.listCart.length;
+    if (cant!=4&&cant<10){
+      this.isOffer=false
+    } else if (cant===4){
+      this.isOffer=true
+    }
+  }
+
+  deleteCart(){
+    this.listCart==[];
+    location.reload()
   }
 
   /*--------------COMPRA--------------------*/

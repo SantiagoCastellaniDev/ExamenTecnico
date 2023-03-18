@@ -7,12 +7,21 @@
     justify-content: center;
     flex-wrap:wrap
 }
+.header {
+    margin-top:110px;
+    display:flex;
+    justify-content:space-between;
+    padding:0 150px
+}
 .back {
-    text-align:end;
-    margin-right:150px;
     position:relative;
-    top:-30px;
+    top:50px;
 }
 .back a {    
     text-decoration: none;
+}
+@media only screen and (max-width: 670px) {
+    .header {
+        padding:0 40px
+    }
 }

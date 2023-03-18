@@ -16,11 +16,13 @@ export class ProductDetailComponent implements OnInit {
   product:Product|any;
   alert:boolean=false;
   cantProducts:number=0;
+  isLogged:boolean=false;
 
   constructor(private productService:ProductsService, private router:Router, private userService:UserService, private cartService:CartService) { }
 
   ngOnInit(): void {
     this.getProductOfSession()
+    this.getStatusLogin()
   }
 
   getProductOfSession(){
@@ -31,10 +33,24 @@ export class ProductDetailComponent implements OnInit {
     }    
   }
 
+  getStatusLogin(){
+    const status = sessionStorage.getItem("isLogged?");
+    if (status=="UserIsLogged"){
+      this.isLogged=true;
+    } else {
+      this.isLogged=false
+    }
+  }
+
   addProductToCart(product:Product){
-    this.cartService.addProductToCart(product);
-    this.cantProducts = this.cartService.countProducts();
-    this.showAlert()
+    if (this.isLogged){
+      this.cartService.addProductToCart(product);
+      this.cantProducts = this.cartService.countProducts();
+      this.showAlert()
+    } else {
+      this.info()
+    }
+    
   }
 
   showAlert(){
@@ -60,6 +76,25 @@ export class ProductDetailComponent implements OnInit {
       confirmButtonText: 'Ok'
     }).then((result:any) => {
       if (result.isConfirmed) {
+        this.router.navigateByUrl('/landing')
+      }
+    })
+  }
+
+  info(){
+    Swal.fire({
+      title: 'Inicia sesión',
+      text: "Para poder comprar o visualizar tu carrito, debes iniciar sesión",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Inicia sesión'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+        this.router.navigateByUrl('/auth/login')
+      }
+      else {
         this.router.navigateByUrl('/landing')
       }
     })
