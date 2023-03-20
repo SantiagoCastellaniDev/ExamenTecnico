@@ -25,6 +25,6 @@ Puedes ver la documentación del frontend en [Frontend](https://github.com/Santi
 
 .......
 
-[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/README.md)
+[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/README.md)
 
 ........
