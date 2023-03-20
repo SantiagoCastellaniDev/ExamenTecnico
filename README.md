@@ -21,7 +21,7 @@ El frontend se encuentra deployeado en: [Tienda Virtual](https://tutiendavirtual
 ***BACKEND***
 
 El backend del proyecto está desarrollado en Java 18 y SpringBoot 2.7.8. Implementa seguridad por token JWT y roles.
-Puedes acceder a la documentación del frontend por aqui: [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/tree/main/frontend/README.md).
+Puedes acceder a la documentación del frontend por aqui: [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/backend.md).
 
 El backend se encuentra deployeado en: [Tienda Virtual](https://examentecnico-production.up.railway.app/products)
 
