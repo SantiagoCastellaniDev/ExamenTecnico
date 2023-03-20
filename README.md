@@ -1,7 +1,7 @@
 # Tienda Virtual
 ## E-Commerce, Examén Técnico
 
-Tienda Virtaul es un ecommerce desarrollado como proyecto para un examen técnico a desarrollar durante una semana. Puedes ver la consigna por [aquí.](https://swagger.io)
+Tienda Virtaul es un ecommerce desarrollado como proyecto para un examen técnico a desarrollar durante una semana. Puedes ver la consigna por [aquí.](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/consigna.md)
 
 El proyecto es un ecommerce en el que se pueden ver productos disponibles para su compra, elegir comprarlos, y tener acceso a diferentes promociones según la fecha, la cantidad de productos y el tipo de cliente.
 
