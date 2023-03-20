@@ -1,0 +1,92 @@
+<div class="seccion text-center">
+    <div id="header" class="text-center">
+        <h2>Tienda Virtual - Productos</h2>
+        <div class="buttons">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newProduct" (click)="clearValidatorsAdd()">Nuevo Producto</button>
+        </div>
+    </div>
+    <div id="product-list">
+        <app-product-list></app-product-list>
+    </div>
+</div>
+
+<!---------------MODAL------------------------->
+
+<!--MODAL NUEVO PRODUCTO--->
+<div class="modal fade" id="newProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-agregar">
+        <div class="modal-header text-center">
+          <h5 class="modal-title" id="staticBackdropLabel">NUEVO PRODUCTO</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearValidatorsAdd()"></button>
+        </div>
+        <!------Formulario------->        
+        <form  [formGroup]="addProductForm" class="add-form" novalidate autocomplete="off" required id="agregarGasto" (ngSubmit)="saveProduct()" autocomplete="off">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nombre del producto</label>
+                    <input type="text" id="name"  formControlName="name" class="form-control text-center" [ngClass]="{'is-valid':!NameAdd?.errors&& NameAdd?.touched}">
+                    <div *ngIf="NameAdd?.errors && NameAdd?.touched">
+                        <p *ngIf="NameAdd?.hasError('required')" class="text-danger">
+                          Ingrese un nombre de producto
+                        </p>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category" class="form-label">Categoría</label><br>
+                    <select type="text" id="category"  formControlName="category" class="form-control text-center" [ngClass]="{'is-valid':!CategoryAdd?.errors&& CategoryAdd?.touched}"> 
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Arte">Arte</option>
+                        <option value="Libros">Libros</option>               
+                    </select>
+                    <div *ngIf="CategoryAdd?.errors && CategoryAdd?.touched">
+                        <p *ngIf="CategoryAdd?.hasError('required')" class="text-danger">
+                          Ingrese una categoría
+                        </p>  
+                    </div>
+                </div>               
+                <div class="form-group">
+                    <label for="description" class="form-label">Descripción</label>
+                    <input type="text" id="description"  formControlName="description" class="form-control text-center" [ngClass]="{'is-valid':!DescriptionAdd?.errors&& DescriptionAdd?.touched}">
+                    <div *ngIf="DescriptionAdd?.errors && DescriptionAdd?.touched">
+                        <p *ngIf="DescriptionAdd?.hasError('required')" class="text-danger">
+                            Ingrese una descripción
+                        </p>
+                        <p *ngIf="DescriptionAdd?.hasError('maxlength')" class="text-danger">
+                            Menos de 50 caracteres
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="form-label">Precio</label>
+                    <input type="number" id="price"  formControlName="price" class="form-control text-center" [ngClass]="{'is-valid':!PriceAdd?.errors&& PriceAdd?.touched}">
+                    <div *ngIf="PriceAdd?.errors && PriceAdd?.touched">
+                        <p *ngIf="PriceAdd?.hasError('required')" class="text-danger">
+                          Ingrese un importe
+                        </p>
+                        <p *ngIf="PriceAdd?.hasError('min')" class="text-danger">
+                            El importe debe ser mayor a cero
+                        </p>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="img_Product" class="form-label">Imagen de producto (url)</label>
+                    <input type="text" id="img_Product"  formControlName="img_Product" class="form-control" [ngClass]="{'is-valid':!Img_ProductAdd?.errors&& Img_ProductAdd?.touched}">
+                    <div *ngIf="Img_ProductAdd?.errors && Img_ProductAdd?.touched">
+                        <p *ngIf="Img_ProductAdd?.hasError('required')" class="text-danger">
+                            Ingrese una imagen
+                        </p>
+                        <p *ngIf="Img_ProductAdd?.hasError('maxlength')" class="text-danger">
+                            Menos de 300 caracteres
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer botones">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearValidatorsAdd()">Cancelar</button> 
+                <button type="submit" class="btn btn-aceptar" data-bs-dismiss="modal"  [disabled]="!addProductForm.valid">Aceptar</button>                               
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

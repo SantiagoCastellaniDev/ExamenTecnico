@@ -53,11 +53,9 @@ export class ProductsListComponent implements OnInit {
   navigateTo(event:Event,id:string,product:Product){
     event.preventDefault();
     event.stopPropagation();
-    console.log('Se hizo clic en el enlace.');
-    console.log(id);
     this.producto=JSON.stringify(product);    
     sessionStorage.setItem("productDetail",this.producto)
-    this.router.navigateByUrl(`/product/detail/${id}`)
+    this.router.navigateByUrl(`admin/detail/${id}`)
   }
 
   addToCart(product:Product){

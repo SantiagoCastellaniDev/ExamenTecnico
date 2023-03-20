@@ -22,7 +22,7 @@
                 <!----Ingrese su email---->
                 <div class="">
                   <label  for="email">Email</label>
-                  <input type="email" id="email"  formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="joseguzman@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/>
+                  <input type="email" id="email"  formControlName="nombreUsuario" class="form-control" aria-describedby="emailHelp" placeholder="joseguzman@email.com" [ngClass]="{'is-valid':!Email?.errors&& Email?.touched}"/>
                   <div *ngIf="Email?.errors && Email?.touched">
                     <p *ngIf="Email?.hasError('required')" class="text-danger">
                       Ingrese su email

@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   ocultar: boolean = true;
   isLogged:boolean=false;
-  loginUsuario: LoginUser={email:"",password:""};
+  loginUsuario: LoginUser={nombreUsuario:"",password:""};
   emailUsuario: string="";
   password: string="";
   usuarioHarcodeado={email:"usuario@email.com",password:"12E45678"};
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private router: Router,private authService:AuthService,private tokenService:TokenService) {
     this.loginForm = this.formBuilder.group(
       {
-        email: ['', [Validators.required, Validators.email]],
+        nombreUsuario: ['', [Validators.required, Validators.email]],
         password: ['',[Validators.required, Validators.minLength(8),Validators.maxLength(25),Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])/)]]
       }
   )}
@@ -33,35 +33,38 @@ export class LoginComponent implements OnInit {
 
   // OnLogin
   onLogin(event: any) {
-    this.loginUsuario = this.loginForm.value;
+    this.loginUsuario = this.loginForm.value;/*
     console.log(this.loginUsuario);
-    if (this.loginUsuario.email=="usuario@email.com"&&this.loginUsuario.password=="12E45678"){
+    if (this.loginUsuario.nombreUsuario=="usuario@email.com"&&this.loginUsuario.password=="12E45678"){
       this.isLogged = true;
       this.authService.isUserLogged();
       this.router.navigate(['/landing'])
+    } else if (this.loginUsuario.nombreUsuario=="admin@email.com"&&this.loginUsuario.password=="12E45678"){
+      this.isLogged = true;
+      this.authService.isUserLogged();
+      this.router.navigate(['/admin'])
     } else {
       this.usuarioIncorrecto()
-    }
-    /*
+    }*/    
     this.authService.login(this.loginUsuario).subscribe({
       next: (res:any) => {
-        
-        this.tokenService.setToken(res.data.token)
-        this.tokenService.setUserId(res.data.user.id)
-        this.tokenService.setUserName(res.data.user.firstName)
-        this.tokenService.setLastName(res.data.user.lastName)
-        this.tokenService.setEmail(res.data.user.email)
-        this.tokenService.setRole(res.data.user.role)
-        const rol = res.data.user.role*/
-        
-      /*,
+        this.isLogged=true;       
+        this.tokenService.setToken(res.token)
+        this.tokenService.setUserName(res.nombreUsuario)
+        this.tokenService.setAuthorities(res.authorities)
+        if (res.authorities.length==2){
+          this.router.navigate(['/admin'])
+        } else {
+          this.router.navigate(['/landing'])
+        }  
+      },
       error: (error:any) => {
         this.isLogged = false
         console.error(error)
         this.usuarioIncorrecto()
       },
       complete: () => {}
-    })*/
+    })
   }
 
   // Properties Validators

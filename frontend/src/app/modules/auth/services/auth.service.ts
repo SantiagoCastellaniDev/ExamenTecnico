@@ -27,7 +27,7 @@ export class AuthService {
 
   // REGISTRARSE
   public register(nuevoUsuario: NewUser): Observable<any> {
-    return this.http.post<any>(this.URL + 'auth/register', nuevoUsuario)
+    return this.http.post<any>(this.URL + 'auth/nuevo', nuevoUsuario)
   }
 
   // LOGIN

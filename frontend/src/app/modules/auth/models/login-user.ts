@@ -1,9 +1,9 @@
 export class LoginUser {
-    email: string
+    nombreUsuario: string // Corresponde al email
     password: string
   
     constructor(email: string, password: string) {
-      this.email = email
+      this.nombreUsuario = email
       this.password = password
     }
 }

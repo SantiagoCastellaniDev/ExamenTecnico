@@ -1,0 +1,21 @@
+.options {
+    margin-top:100px;
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+a {
+    text-decoration:none;
+}
+.opcion {
+    width:150px;
+    height:150px;
+    border:1px solid grey;
+    margin:50px;
+    background:yellow;
+    padding:50px 10px
+}
+.opcion p {    
+    color:black;
+    font-size:1.5rem;
+}

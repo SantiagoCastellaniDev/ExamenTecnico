@@ -1,0 +1,35 @@
+
+.footer a {
+    text-decoration: none;
+    margin-right:10px;
+}
+
+.footer {
+    border-top:1px solid gray;
+    color:white;
+    background:black
+}
+#corazon {
+    color:red;
+    font-size: 20px;
+    vertical-align: -0.08em;
+}
+
+.empresarial {
+    flex-wrap:wrap;
+    padding:40px 30px;
+    min-height:100px;
+    height:max-content;
+    border-top:1px solid grey
+}
+.empresarial p {
+    margin-bottom:0;
+    
+}
+.redes {
+    margin-top:10px
+}
+.redes span,.redes a {
+    margin-right:20px;
+    text-align:center
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { NewUser } from '../models/new-user';
 import { AuthService } from '../services/auth.service';
 
@@ -37,7 +38,13 @@ export class RegisterComponent implements OnInit {
 
   // REGISTER
   onRegister() {
-    this.nuevoUsuario = this.registerForm.value;
+    this.nuevoUsuario = {
+      nombre:this.registerForm.value.firstName,
+      apellido:this.registerForm.value.apellido,
+      nombreUsuario:this.registerForm.value.email,
+      email:this.registerForm.value.email,
+      password:this.registerForm.value.password
+    }
     this.authService.register(this.nuevoUsuario).subscribe({
       next: (res:any) => {
         this.usuarioRegistrado()
@@ -51,13 +58,10 @@ export class RegisterComponent implements OnInit {
 
   // ALERT: Usuario registrado 
   
-  usuarioRegistrado() {
-    console.log("Registro")
-
-    /*
+  usuarioRegistrado() {    
     Swal.fire({
       title: 'Usuario Registrado',
-      text: "Hemos enviado un correo a tu email, para que verifiques tu cuenta y comiences a usar CitaMed",
+      text: "Te has registrado satisfactoriamente en Tienda Virtual",
       icon: 'success',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -67,17 +71,14 @@ export class RegisterComponent implements OnInit {
       if (result.isConfirmed) {
         this.router.navigateByUrl('/auth/login')
       } else {
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/landing')
       }
-    })*/
+    })
   }
 
   // ALERT: Registro Incorrecto
   
   registroIncorrecto() {
-    console.log("Error")
-
-    /*
     Swal.fire({
       title: 'Error en el registro',
       text: "Por algún motivo relacionado con unos y ceros, no podemos registrarte",
@@ -90,9 +91,9 @@ export class RegisterComponent implements OnInit {
       if (result.isConfirmed) {
         this.router.navigateByUrl('/auth/registro')
       } else {
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/landing')
       }
-    })*/
+    })
   } 
 
   /*=================================================*/
