@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/modules/auth/services/token.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,20 +12,20 @@ export class NavComponent implements OnInit {
 
   isLogged:boolean=false;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.getStatusLogin()
   }
 
   getStatusLogin(){
-    const status = sessionStorage.getItem("isLogged?");
-    if (status=="UserIsLogged"){
-      this.isLogged=true;
+    const status = this.tokenService.getToken();
+    if (status!=null){
+      this.isLogged=true
     } else {
       this.isLogged=false
     }
-  }
+}  
 
   actionUser(){
     this.logout()    

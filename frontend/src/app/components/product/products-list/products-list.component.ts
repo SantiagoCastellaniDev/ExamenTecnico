@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { TokenService } from 'src/app/modules/auth/services/token.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 import Swal from 'sweetalert2';
@@ -20,7 +21,7 @@ export class ProductsListComponent implements OnInit {
   
   alert:boolean=false;
 
-  constructor(private productsService:ProductsService, private cartService:CartService,private router:Router) { }
+  constructor(private productsService:ProductsService, private tokenService:TokenService, private cartService:CartService,private router:Router) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -42,20 +43,20 @@ export class ProductsListComponent implements OnInit {
   }
 
   getStatusLogin(){
-    const status = sessionStorage.getItem("isLogged?");
-    if (status=="UserIsLogged"){
-      this.isLogged=true;
-    } else {
-      this.isLogged=false
-    }
-  }
+      const status = this.tokenService.getToken();
+      if (status!=null){
+        this.isLogged=true
+      } else {
+        this.isLogged=false
+      }
+  }  
 
   navigateTo(event:Event,id:string,product:Product){
     event.preventDefault();
     event.stopPropagation();
     this.producto=JSON.stringify(product);    
     sessionStorage.setItem("productDetail",this.producto)
-    this.router.navigateByUrl(`admin/detail/${id}`)
+    this.router.navigateByUrl(`product/detail/${id}`)
   }
 
   addToCart(product:Product){

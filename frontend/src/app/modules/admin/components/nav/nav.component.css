@@ -1,6 +1,6 @@
 .navbar {
     min-height:100px;
-    background:yellow;
+    background:rgb(255, 255, 124);
     border-bottom:1px solid grey
 }
 #btn-carrito,#btn-user {

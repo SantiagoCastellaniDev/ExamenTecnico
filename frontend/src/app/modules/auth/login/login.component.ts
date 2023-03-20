@@ -33,22 +33,9 @@ export class LoginComponent implements OnInit {
 
   // OnLogin
   onLogin(event: any) {
-    this.loginUsuario = this.loginForm.value;/*
-    console.log(this.loginUsuario);
-    if (this.loginUsuario.nombreUsuario=="usuario@email.com"&&this.loginUsuario.password=="12E45678"){
-      this.isLogged = true;
-      this.authService.isUserLogged();
-      this.router.navigate(['/landing'])
-    } else if (this.loginUsuario.nombreUsuario=="admin@email.com"&&this.loginUsuario.password=="12E45678"){
-      this.isLogged = true;
-      this.authService.isUserLogged();
-      this.router.navigate(['/admin'])
-    } else {
-      this.usuarioIncorrecto()
-    }*/    
+    this.loginUsuario = this.loginForm.value;
     this.authService.login(this.loginUsuario).subscribe({
-      next: (res:any) => {
-        this.isLogged=true;       
+      next: (res:any) => {       
         this.tokenService.setToken(res.token)
         this.tokenService.setUserName(res.nombreUsuario)
         this.tokenService.setAuthorities(res.authorities)
@@ -59,8 +46,6 @@ export class LoginComponent implements OnInit {
         }  
       },
       error: (error:any) => {
-        this.isLogged = false
-        console.error(error)
         this.usuarioIncorrecto()
       },
       complete: () => {}

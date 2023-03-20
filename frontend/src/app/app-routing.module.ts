@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'landing',component:LandingComponent},
   {path:'products',component:ProductPageComponent},
   {path:'product/detail/:id?',component:ProductDetailComponent}, 
-  {path:'specialDay',component:FechasComponent,canActivate:[UsersGuard]}, 
+  {path:'specialDay',component:FechasComponent}, 
   {path: 'cart', component: CartPageComponent,canActivate:[UsersGuard]},
   {path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
   {path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),canActivate:[AdminGuard]},

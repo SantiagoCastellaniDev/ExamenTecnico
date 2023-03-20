@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { TokenService } from 'src/app/modules/auth/services/token.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { UserService } from 'src/app/services/user.service';
@@ -18,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
   cantProducts:number=0;
   isLogged:boolean=false;
 
-  constructor(private productService:ProductsService, private router:Router, private userService:UserService, private cartService:CartService) { }
+  constructor(private productService:ProductsService, private tokenService:TokenService,private router:Router, private userService:UserService, private cartService:CartService) { }
 
   ngOnInit(): void {
     this.getProductOfSession()
@@ -34,13 +35,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getStatusLogin(){
-    const status = sessionStorage.getItem("isLogged?");
-    if (status=="UserIsLogged"){
-      this.isLogged=true;
+    const status = this.tokenService.getToken();
+    if (status!=null){
+      this.isLogged=true
     } else {
       this.isLogged=false
     }
-  }
+  }  
 
   addProductToCart(product:Product){
     if (this.isLogged){

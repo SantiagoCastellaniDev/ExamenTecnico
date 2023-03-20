@@ -49,4 +49,14 @@ roles: Array<string> = [];
   public logOut(): void{
     window.sessionStorage.clear();
   }
+
+  public isAdmin():boolean{
+    this.getAuthorities();
+    if (this.roles.length==2){
+      return true
+    } else {
+      return false
+
+    }
+  }
 }
