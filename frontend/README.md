@@ -12,7 +12,7 @@ Faltaron implementar las funcionalidades tanto en backend y frontend de visualiz
 
 El Frontend esta deployeado en: [Tienda Virtual](https://tutiendavirtual.vercel.app/)
 
-La documentación del back la puedes ver en [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/edit/main/backend/README.md)
+La documentación del back la puedes ver en [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/backend.md)
 
 ......
 [Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/README.md)
