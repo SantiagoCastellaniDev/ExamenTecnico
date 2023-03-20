@@ -87,6 +87,7 @@ export class ProductListComponent implements OnInit {
     const editId = this.editId;
     this.productService.updateProduct(editId,newProduct).subscribe({
       next: (res) => {
+        console.log(res)
       },
       error: (error) => {
         console.log(error)
