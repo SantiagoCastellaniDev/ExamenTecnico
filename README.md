@@ -10,7 +10,7 @@ Tiene un dashboard usuario, y un dashboard admin que permite visualizar producto
 ***FRONTEND***
 
 El frontend del proyecto está desarrollado en Angular 13, implementa seguridad por token JWT y roles. Las rutas de cada rol de usuario están protegidas. Se utilizó modularización, ruteo, guards e interceptors.
-Puedes acceder a la documentación del frontend por aqui: [Frontend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/tree/main/frontend).
+Puedes acceder a la documentación del frontend por aqui: [Frontend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/tree/main/frontend/README.md).
 
 El frontend se encuentra deployeado en: [Tienda Virtual](https://tutiendavirtual.vercel.app/)
 
