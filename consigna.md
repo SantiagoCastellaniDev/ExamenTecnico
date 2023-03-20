@@ -31,3 +31,7 @@ $500.
 considerado VIP en su próxima compra. (considerar el valor de lo que realmente paga el
 cliente por los carritos luego de aplicarle los descuentos)
 - Si el cliente en un determinado mes, no realizó compras, deja de ser VIP si lo era.
+
+
+
+[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/README.md)
