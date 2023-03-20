@@ -1,4 +1,25 @@
-# Frontend
+# TIENDA VIRTUAL - Frontend
+
+El Frontend de Tienda Virtual está desarrollado en Angular 13. Se implemento Bootstrap en los estilos, y se utilizó la librería Sweet Alert2 para las alertas.
+
+Cuenta con un dashboard usuario, en el que para poder comprar uhn producto, el usuario debe loguearse, de lo contrario solo podrá visualizar los productos.
+
+El administrador puede crear nuevos productos, editar y eliminar, y también puede recorrer las aplicación en modo usuario.
+
+Para la autenticación se utilizó JWT, y se protegió las rutas con sus respectivos Guards usuario y admin.
+
+Faltaron implementar las funcionalidades tanto en backend y frontend de visualizar compras y clientes.
+
+El Frontend esta deployeado en: [Tienda Virtual](https://tutiendavirtual.vercel.app/)
+
+La documentación del back la puedes ver en [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/edit/main/backend/README.md)
+
+......
+[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/README.md)
+......
+
+
+A continuación, la documentación ofrecida por Angular:
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
