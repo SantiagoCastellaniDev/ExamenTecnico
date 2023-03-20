@@ -15,7 +15,9 @@ El Frontend esta deployeado en: [Tienda Virtual](https://tutiendavirtual.vercel.
 La documentación del back la puedes ver en [backend](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/backend.md)
 
 ......
-[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/README.md)
+
+[Volver](https://github.com/SantiagoCastellaniDev/ExamenTecnico/blob/main/README.md)
+
 ......
 
 
