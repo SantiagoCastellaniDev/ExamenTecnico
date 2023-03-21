@@ -8,6 +8,7 @@ import com.back.et.service.IService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,21 +32,21 @@ public class ProductController {
     }
     
     // save (Guardar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/product/save")    
     public void saveProduct(@RequestBody Product product) throws Exception{
         iproductService.save(product);
     }
     
     // delete (Eliminar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/product/delete/{id}")
     public void deleteById(@PathVariable Long id) throws Exception{
         iproductService.delete(id);
     }
     
     // update (Modificar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/product/update/{id}")
     public ResponseEntity<Product> actualizarExperiencia 
                             (@PathVariable Long id,
@@ -55,9 +56,9 @@ public class ProductController {
         
         product.setName(newProduct.getName());
         product.setDescription(newProduct.getDescription());
-        product.setPrice(product.getPrice());
+        product.setPrice(newProduct.getPrice());
         product.setCategory(newProduct.getCategory());
-        product.setImg_Product(product.getImg_Product());
+        product.setImg_Product(newProduct.getImg_Product());
         
         //New Product        
         iproductService.save(product);

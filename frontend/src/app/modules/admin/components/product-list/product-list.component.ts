@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
       {      
         name: ['', [Validators.required]],
         description: ['',[Validators.required]],
-        price:['',[Validators.required,Validators.min(0)]],
+        price:[0,[Validators.required,Validators.min(0)]],
         category:['',[Validators.required,Validators.maxLength(14)]],
         img_Product:['',[Validators.required]]
       }
@@ -52,8 +52,6 @@ export class ProductListComponent implements OnInit {
   navigateTo(event:Event,id:string,product:Product){
     event.preventDefault();
     event.stopPropagation();
-    console.log('Se hizo clic en el enlace.');
-    console.log(id);
     this.producto=JSON.stringify(product);    
     sessionStorage.setItem("productDetail",this.producto)
     this.router.navigateByUrl("admin/productdetail")
@@ -70,14 +68,12 @@ export class ProductListComponent implements OnInit {
   editableId(id:any,product: any){
     const editableProduct = product;
     this.editId = id;
-    console.log(id)
-    console.log(editableProduct.name)   
     /* Mostrar datos en el modal */    
     this.editProductForm.controls['name'].setValue(editableProduct.name);
     this.editProductForm.controls['description'].setValue(editableProduct.description);
     this.editProductForm.controls['price'].setValue(editableProduct.price);
     this.editProductForm.controls['category'].setValue(editableProduct.category);
-    this.editProductForm.controls['img_Product'].setValue(editableProduct.img_Product);
+    this.editProductForm.controls['img_Product'].setValue(editableProduct.img_Product);    
   }
 
   // Actualizar PRODUCTO
