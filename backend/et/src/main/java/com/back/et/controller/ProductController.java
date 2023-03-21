@@ -55,9 +55,9 @@ public class ProductController {
         
         product.setName(newProduct.getName());
         product.setDescription(newProduct.getDescription());
-        product.setPrice(product.getPrice());
+        product.setPrice(newProduct.getPrice());
         product.setCategory(newProduct.getCategory());
-        product.setImg_Product(product.getImg_Product());
+        product.setImg_Product(newProduct.getImg_Product());
         
         //New Product        
         iproductService.save(product);
