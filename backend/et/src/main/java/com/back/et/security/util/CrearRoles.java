@@ -26,8 +26,8 @@ public class CrearRoles  implements CommandLineRunner {
         rolService.save(rolAdmin);
         rolService.save(rolUser);
     } 
-}
-*/
+}*/
+
 package com.back.et.security.util;
 public class CrearRoles{
 }

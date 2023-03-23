@@ -38,21 +38,21 @@ public class ProductController {
     }
     
     // save (Guardar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/product/save")    
     public void saveProduct(@RequestBody Product product) throws Exception{
         iproductService.save(product);
     }
     
     // delete (Eliminar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/product/delete/{id}")
     public void deleteById(@PathVariable Long id) throws Exception{
         iproductService.delete(id);
     }
     
     // update (Modificar Producto)
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/product/update/{id}")
     public ResponseEntity<Product> actualizarExperiencia 
                             (@PathVariable Long id,
