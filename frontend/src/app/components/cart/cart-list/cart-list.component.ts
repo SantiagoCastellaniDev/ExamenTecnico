@@ -50,18 +50,15 @@ export class CartListComponent implements OnInit {
   // Get Date
   getFechaActual(){
     this.today = this.productService.getFechaActual();
-    console.log(this.today)
   }
   
   // Get Fecha Especial
   getFechaEspecial(){
     this.specialDay=this.productService.fechaEspecial();
-    console.log(this.specialDay)
   }
 
   // Date Comparator
-  comparator(){  
-    console.log(this.today,this.specialDay)
+  comparator(){ 
     if (this.today===this.specialDay){
       this.typeCart=TypeCart.fecha;
       this.isOffer=true;
@@ -121,9 +118,7 @@ export class CartListComponent implements OnInit {
   // "Mas de 10 productos, y hay descuento por FECHA ESPECIAL"
   offerFecha(){
     this.isOffer=true;
-    this.priceOffer = this.totalPrice - 300;
-    //return this.priceOffer
-    console.log(this.priceOffer)
+    this.priceOffer = this.totalPrice - 300;    
   }  
 
   /*--------------PRODUCTOS--------------------*/

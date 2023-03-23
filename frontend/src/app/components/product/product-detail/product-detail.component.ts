@@ -14,23 +14,23 @@ import Swal from 'sweetalert2';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product:Product|any;
+  product!:Product;
   alert:boolean=false;
   cantProducts:number=0;
   isLogged:boolean=false;
+  id:number=0;
 
   constructor(private productService:ProductsService, private tokenService:TokenService,private router:Router, private userService:UserService, private cartService:CartService) { }
 
-  ngOnInit(): void {
-    this.getProductOfSession()
+  ngOnInit(): void {    
     this.getStatusLogin()
+    this.getProductOfSession()
   }
-
+  
   getProductOfSession(){
     const prod = sessionStorage.getItem("productDetail");
     if (prod!=null){
       this.product = JSON.parse(prod);
-      console.log(this.product)
     }    
   }
 

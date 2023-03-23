@@ -52,15 +52,14 @@ export class ProductListComponent implements OnInit {
   navigateTo(event:Event,id:string,product:Product){
     event.preventDefault();
     event.stopPropagation();
-    this.producto=JSON.stringify(product);    
-    sessionStorage.setItem("productDetail",this.producto)
+    //this.producto=JSON.stringify(product);    
+    //sessionStorage.setItem("productDetail",this.producto);
+    sessionStorage.setItem("idProduct",id)
     this.router.navigateByUrl("admin/productdetail")
   }
 
   /*==================================================== */
   /*--------------Modales Metodos CRUD-------------------*/
-
-  
 
   /*--------EDITAR PRODUCTO------------*/
 
@@ -83,7 +82,6 @@ export class ProductListComponent implements OnInit {
     const editId = this.editId;
     this.productService.updateProduct(editId,newProduct).subscribe({
       next: (res) => {
-        console.log(res)
       },
       error: (error) => {
         console.log(error)

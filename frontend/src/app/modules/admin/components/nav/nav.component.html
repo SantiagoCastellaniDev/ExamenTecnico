@@ -8,16 +8,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/landing">Home(Sitio Cliente)</a>
+              <a class="nav-link active" aria-current="page" routerLink="/landing" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home(Sitio Cliente)</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/admin/products">PRODUCTOS</a>
+              <a class="nav-link active" aria-current="page" routerLink="/admin/products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">PRODUCTOS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/admin/buys">COMPRAS</a>
+                <a class="nav-link active" aria-current="page" routerLink="/admin/buys" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">COMPRAS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/admin/clients">CLIENTES</a>
+                <a class="nav-link active" aria-current="page" routerLink="/admin/clients" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">CLIENTES</a>
             </li>             
         </ul>
         <button [style.color]="isLogged?'orange':'black'" id="btn-user" (click)="actionUser()"><i [ngClass]="isLogged?'bi bi-person-check-fill':'bi bi-person'"></i></button>

@@ -66,6 +66,7 @@ export class ProductsComponent implements OnInit {
     return this.addProductForm.get('img_Product')
   }
   clearValidatorsAdd() {
+    this.addProductForm.reset()
   }
 
 

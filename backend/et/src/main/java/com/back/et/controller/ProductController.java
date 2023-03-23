@@ -31,6 +31,12 @@ public class ProductController {
         return iproductService.getAll();
     }
     
+    // getById (Ver Producto x Id)
+    @GetMapping ("/product/{id}")
+    public Product findById(@PathVariable Long id) throws Exception {
+        return iproductService.findById(id);
+    }
+    
     // save (Guardar Producto)
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/product/save")    

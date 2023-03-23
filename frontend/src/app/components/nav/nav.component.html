@@ -8,13 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/landing">Home</a>
+              <a class="nav-link active" aria-current="page" routerLink="/landing" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/products">PRODUCTOS</a>
+              <a class="nav-link active" aria-current="page" routerLink="/products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">PRODUCTOS</a>
             </li>
             <li class="nav-item" *ngIf="isAdmin">
-              <a class="nav-link active" aria-current="page" routerLink="/admin/dashboard">Ir a Sitio Administrador</a>
+              <a class="nav-link active" aria-current="page" routerLink="/admin/dashboard" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Ir a Sitio Administrador</a>
             </li>           
         </ul>     
         <button id="btn-carrito" (click)="openCart()"><i class="bi bi-cart"></i><span *ngIf="cantProducts!=0">{{cantProducts}}</span></button>

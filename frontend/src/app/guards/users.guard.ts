@@ -15,7 +15,6 @@ export class UsersGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const expectedRol = route.data['expectedRol'];
     const roles = this.tokenService.getAuthorities();
-    console.log(roles)
     this.realRol = 'visit';
     roles.forEach(rol => {
       if (rol === 'ROLE_USER') {

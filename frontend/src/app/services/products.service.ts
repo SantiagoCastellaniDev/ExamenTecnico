@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class ProductsService {
   // getAll: OBTENER PRODUCTOS
   public getAll():Observable<any>{
     return this.http.get<any>(this.URL + "products")
+  }
+
+  // getById: OBTENER PRODUCTO x ID
+  public getById(id:number):Observable<Product>{
+    return this.http.get<any>(this.URL + `product/${id}`)
   }
 
   // save: CREAR NUEVO PRODUCTO

@@ -33,10 +33,9 @@ export class ProductsListComponent implements OnInit {
     this.productsService.getAll().subscribe({
       next: (res) => {
         this.productList = res;
-        console.log(res)
       },
       error: (error) => {
-        console.log(error)
+        console.error(error)
       },
       complete:()=>{}
     })
@@ -55,7 +54,8 @@ export class ProductsListComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.producto=JSON.stringify(product);    
-    sessionStorage.setItem("productDetail",this.producto)
+    sessionStorage.setItem("idProduct",id);
+    sessionStorage.setItem("productDetail",this.producto);
     this.router.navigateByUrl(`product/detail/${id}`)
   }
 
